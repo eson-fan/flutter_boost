@@ -41,8 +41,9 @@ class Router {
   Future<bool> openPage(String url, Map params,
       {bool animated = true, PageResultHandler resultHandler}) {
     if (resultHandler != null) {
+      params["requestCode"] = DateTime.now().millisecondsSinceEpoch~/1000;
       params["needResult"] = true;
-      FlutterBoost.singleton.setPageResultHandler(url,
+      FlutterBoost.singleton.setPageResultHandler(params["requestCode"].toString(),
           (String key, Map<dynamic, dynamic> result) {
         Logger.log("Recieved result $result for from page key $key");
         if (resultHandler != null) {

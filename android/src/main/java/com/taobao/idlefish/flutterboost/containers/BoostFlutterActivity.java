@@ -156,8 +156,15 @@ abstract public class BoostFlutterActivity extends FlutterActivity implements IF
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        FlutterBoostPlugin.onBoostResult(this,requestCode,resultCode,data);
+    protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        Map map = new HashMap();
+        if(intent != null) {
+            map.put("result",intent.getSerializableExtra(IFlutterViewContainer.RESULT_KEY));
+        }
+        //map.put("requestCode",requestCode);
+        map.put("responseCode",resultCode);
+        FlutterBoostPlugin.onPageResult(String.valueOf(requestCode), map);
+        //FlutterBoostPlugin.onBoostResult(this,requestCode,resultCode,data);
     }
 
     class FlutterContent extends FlutterViewStub {

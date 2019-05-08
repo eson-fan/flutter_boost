@@ -162,4 +162,6 @@ class FlutterBoost {
   ///register callbacks for Navigators push & pop
   VoidCallback addBoostNavigatorObserver(BoostNavigatorObserver observer) =>
       _observersHolder.addObserver<BoostNavigatorObserver>(observer);
+
+  PageResultMediator get resultMediator => _resultMediator;
 }

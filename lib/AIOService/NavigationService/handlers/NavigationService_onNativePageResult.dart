@@ -51,6 +51,7 @@ class NavigationService_onNativePageResult extends ServiceCallHandler {
 
 //==============================================Do not edit code above!
   Future<bool> onCall(String uniqueId,String key,Map resultData,Map params) async{
-    return FlutterBoost.singleton.onPageResult(key, resultData);
+    FlutterBoost.singleton.resultMediator.onPageResult(key, resultData);
+    return true;
   }
 }

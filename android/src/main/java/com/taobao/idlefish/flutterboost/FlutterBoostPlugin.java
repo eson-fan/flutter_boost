@@ -150,7 +150,7 @@ public class FlutterBoostPlugin implements MethodChannel.MethodCallHandler, Appl
 
         //Handling page result.
         if (sInstance.needResult(params)) {
-            sInstance.mMediator.setHandler(url, new PageResultHandler() {
+            sInstance.mMediator.setHandler(String.valueOf(requestCode), new PageResultHandler() {
                 @Override
                 public void onResult(String key, Map resultData) {
                     NavigationService.onNativePageResult(new MessageResult<Boolean>() {

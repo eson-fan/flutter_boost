@@ -38,12 +38,12 @@
  
  
      private boolean onCall(MessageResult<Boolean> result,String pageName,Map params,Boolean animated){
-         Map pageParams = null;
+         Map pageParams = params;
          int requestCode = 0;
 
-         if(params != null && params.get("query") != null) {
+         /*if(params != null && params.get("query") != null) {
              pageParams = (Map)params.get("query");
-         }
+         }*/
 
          if(params != null && params.get("requestCode") != null) {
              requestCode = (int)params.get("requestCode");
