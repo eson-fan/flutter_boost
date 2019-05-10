@@ -38,6 +38,13 @@
      if(pageName == nil){
          pageName = params[@"url"];
      }
+
+     id requestCode = [params objectForKey:@"requestCode"];
+     if([requestCode isKindOfClass:NSNumber.class]){
+       url = ((NSNumber *)requestCode).stringValue;
+     }else if([requestCode isKindOfClass:NSString.class]){
+       url = requestCode;
+     }
      
      if([self needResult:params]){
          [FlutterBoostPlugin.sharedInstance setResultHandler:^(NSString *key , NSDictionary *resultData) {
