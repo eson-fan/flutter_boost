@@ -84,12 +84,8 @@ class Router {
       animated = params["animated"] as bool;
       params.remove("animated");
     }
-    var result = settings.params;
-    if(params != null) {
-      result['_result_'] = params;
-    }
 
     return _msgProxy.closePage(
-        settings.uniqueId, settings.name, result, animated);
+        settings.uniqueId, settings.name, params, animated);
   }
 }
