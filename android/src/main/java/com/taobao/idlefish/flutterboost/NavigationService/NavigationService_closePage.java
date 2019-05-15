@@ -39,11 +39,11 @@
  
  
         private boolean onCall(MessageResult<Boolean> result,String uniqueId,String pageName,Map params,Boolean animated){
-            Map result = null;
+            Map resultMap = null;
             if (params != null && params.containsKey("_result_")) {
-                result = (Map)params.get("_result_");
+                resultMap = (Map)params.get("_result_");
             }
-            FlutterBoostPlugin.containerManager().destroyContainerRecord(pageName,uniqueId,result);
+            FlutterBoostPlugin.containerManager().destroyContainerRecord(pageName,uniqueId,resultMap);
             result.success(true);
             return true;
       }
