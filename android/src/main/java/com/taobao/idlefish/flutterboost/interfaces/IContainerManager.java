@@ -73,7 +73,7 @@ public interface IContainerManager {
      * @param name
      * @param uq
      */
-    void destroyContainerRecord(String name,String uq);
+    void destroyContainerRecord(String name,String uq,Map params);
 
     /**
      * call by native side when container handle a result (onActivityResult)

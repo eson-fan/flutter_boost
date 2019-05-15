@@ -139,7 +139,12 @@ abstract public class BoostFlutterActivity extends FlutterActivity implements IF
     }
 
     @Override
-    public void destroyContainer() {
+    public void destroyContainer(Map params) {
+        HashMap result = new HashMap();
+        if(params != null) {
+            result.putAll(params);
+        }
+        FlutterBoostPlugin.setBoostResult(this, result);
         finish();
     }
 

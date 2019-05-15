@@ -167,7 +167,7 @@ public class FlutterViewContainerManager implements IContainerManager {
     }
 
     @Override
-    public void destroyContainerRecord(String name, String uniqueId) {
+    public void destroyContainerRecord(String name, String uniqueId,Map params) {
         assertCallOnMainThread();
 
         boolean done = false;
