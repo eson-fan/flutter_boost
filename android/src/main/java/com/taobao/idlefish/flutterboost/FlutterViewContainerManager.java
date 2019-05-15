@@ -173,7 +173,7 @@ public class FlutterViewContainerManager implements IContainerManager {
         boolean done = false;
         for (Map.Entry<IFlutterViewContainer, IContainerRecord> entry : mRecords.entrySet()) {
             if (TextUtils.equals(uniqueId, entry.getValue().uniqueId())) {
-                entry.getKey().destroyContainer();
+                entry.getKey().destroyContainer(params);
                 done = true;
                 break;
             }
