@@ -82,9 +82,14 @@ class Router {
     bool animated = true;
     if (params.containsKey("animated")) {
       animated = params["animated"] as bool;
+      params.remove("animated");
+    }
+    var result = settings.params;
+    if(params != null) {
+      result['_result_'] = params;
     }
 
     return _msgProxy.closePage(
-        settings.uniqueId, settings.name, settings.params, animated);
+        settings.uniqueId, settings.name, result, animated);
   }
 }
