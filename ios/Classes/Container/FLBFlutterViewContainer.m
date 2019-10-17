@@ -46,7 +46,7 @@
 
 - (void)setName:(NSString *)name params:(NSDictionary *)params
 {
-    if(!_name && name){
+    if(name){
         _name = name;
         _params = params;
         [Service_NavigationService didInitPageContainer:^(NSNumber *r) {}
