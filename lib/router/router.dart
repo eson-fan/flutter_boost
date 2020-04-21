@@ -22,6 +22,7 @@
  * THE SOFTWARE.
  */
 import 'dart:async';
+import 'dart:math';
 
 import 'package:flutter_boost/container/boost_container.dart';
 import 'package:flutter_boost/flutter_boost.dart';
@@ -41,7 +42,7 @@ class Router {
   Future<bool> openPage(String url, Map params,
       {bool animated = true, PageResultHandler resultHandler}) {
     if (resultHandler != null) {
-      params["requestCode"] = DateTime.now().millisecondsSinceEpoch~/1000;
+      params["requestCode"] = (Random().nextDouble() * 10000).toInt() + 20000;
       params["needResult"] = true;
       FlutterBoost.singleton.setPageResultHandler(params["requestCode"].toString(),
           (String key, Map<dynamic, dynamic> result) {
